@@ -1,2 +1,3 @@
 # LeetCodeExercise
-None
+LeetCode上面的算法题以及一些复杂度较低解题思路
+每10题记为一个单元，已经写好了测试方法，方便断点理解逻辑
