@@ -15,7 +15,6 @@ public class ParameterUtils {
 
     private static final String CAPITAL_LETTER = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-
     private ParameterUtils() {
     }
 
@@ -93,21 +92,23 @@ public class ParameterUtils {
     /**
      * 构建指定长度的小写字母字符串
      */
-    public static String getRandomLowString(int length) {
+    public String getRandomLowString(int length) {
         return getRandomString(length, LOWERCASE_LETTER);
     }
+
     /**
      * 构建指定长度的大写字母字符串
      */
-    public static String getRandomCapitalString(int length) {
+    public String getRandomCapitalString(int length) {
         return getRandomString(length, CAPITAL_LETTER);
     }
 
     /**
      * 根据rule构建随机字符串
+     *
      * @param rule 字符串集，现有全大写和全小写
      */
-    public static String getRandomString(int length, String rule) {
+    public String getRandomString(int length, String rule) {
         Random random = new Random();
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < length; i++) {
@@ -116,4 +117,23 @@ public class ParameterUtils {
         }
         return sb.toString();
     }
+
+    /**
+     * 获取指定长度，指定递增最大值的递增数组
+     *
+     * @param max    递增最大值
+     * @param length 长度
+     */
+    public int[] getRandomIncreasingArray(int max, int length) {
+        int[] result = new int[length];
+        int maxValue = 0;
+        for (int i = 0; i < length; i++) {
+            int value = (int) (maxValue + max * Math.random());
+            result[i] = value;
+            maxValue = value;
+
+        }
+        return result;
+    }
+
 }
