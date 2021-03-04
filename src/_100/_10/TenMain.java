@@ -1,4 +1,4 @@
-package hundred.tenExercise;
+package _100._10;
 
 
 /**
