@@ -1,4 +1,4 @@
-package _100._10;
+package _100._1to9;
 
 
 /**
@@ -6,9 +6,9 @@ package _100._10;
  * @date 2020/12/17 20:46
  * @description: LeetCode 1-10 主函数
  */
-public class TenMain {
+public class Main {
     public static void main(String[] args) {
-        TenSolution tenSolution = new TenSolution();
+        Solution solution = new Solution();
         //1.两数之和
         /*
         int[] randomArray = ParameterUtils.getInstance().getRandomArray(100);
@@ -74,7 +74,6 @@ public class TenMain {
         System.out.println(" = " +tenSolution.isPalindromeBest(1234554321));
         */
 
-        //10. 正则表达式匹配
 
     }
 

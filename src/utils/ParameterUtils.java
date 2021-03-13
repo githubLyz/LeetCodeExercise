@@ -1,6 +1,6 @@
 package utils;
 
-import bean.LinkedNode;
+import bean.ListNode;
 
 import java.util.Arrays;
 import java.util.Random;
@@ -61,30 +61,30 @@ public class ParameterUtils {
      * @param size 链表长度
      * @param max  链表中元素最大值
      */
-    public LinkedNode getRandomLinked(int size, int max) {
-        LinkedNode linkedNodeHead = new LinkedNode();
-        LinkedNode linkedNodeAdd = new LinkedNode();
-        linkedNodeHead.next = linkedNodeAdd;
+    public ListNode getRandomLinked(int size, int max) {
+        ListNode listNodeHead = new ListNode();
+        ListNode listNodeAdd = new ListNode();
+        listNodeHead.next = listNodeAdd;
         int i = 0;
         while (i < size) {
-            LinkedNode linkedNode = new LinkedNode((int) (max * Math.random()));
-            linkedNodeAdd.next = linkedNode;
-            linkedNodeAdd = linkedNode;
+            ListNode listNode = new ListNode((int) (max * Math.random()));
+            listNodeAdd.next = listNode;
+            listNodeAdd = listNode;
             i++;
         }
-        return linkedNodeHead.next.next;
+        return listNodeHead.next.next;
     }
 
     /**
      * 打印链表
      */
-    public void printlnLinked(LinkedNode linkedNode) {
-        LinkedNode linkedNodeHead = linkedNode;
+    public void printlnLinked(ListNode listNode) {
+        ListNode listNodeHead = listNode;
         System.out.print("[");
-        while (linkedNodeHead != null) {
-            String append = (null == linkedNodeHead.next) ? "" : " -> ";
-            System.out.print(linkedNodeHead.val + append);
-            linkedNodeHead = linkedNodeHead.next;
+        while (listNodeHead != null) {
+            String append = (null == listNodeHead.next) ? "" : " -> ";
+            System.out.print(listNodeHead.val + append);
+            listNodeHead = listNodeHead.next;
         }
         System.out.print("]");
     }

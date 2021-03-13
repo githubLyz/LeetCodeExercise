@@ -1,6 +1,6 @@
-package _100._10;
+package _100._1to9;
 
-import bean.LinkedNode;
+import bean.ListNode;
 
 import java.util.ArrayList;
 import java.util.Stack;
@@ -8,9 +8,9 @@ import java.util.Stack;
 /**
  * @author YuJoy
  * @date 2020/12/17 20:46
- * @description: LeetCode 1-10题解
+ * @description: LeetCode 1-9题解
  */
-public class TenSolution {
+public class Solution {
     /**
      * 给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那 两个 整数，并返回他们的数组下标。
      * <p>
@@ -57,10 +57,10 @@ public class TenSolution {
      * 链接：https://leetcode-cn.com/problems/add-two-numbers
      * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
      */
-    public LinkedNode addTwoNumbers(LinkedNode l1, LinkedNode l2) {
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         //创建头节点，方便返回值
-        LinkedNode headNode = new LinkedNode(-1);
-        LinkedNode addNode = new LinkedNode();
+        ListNode headNode = new ListNode(-1);
+        ListNode addNode = new ListNode();
         headNode.next = addNode;
         //标记位，不为0说明两数相加大于10，需要处理进位逻辑
         int needAdd = 0;
@@ -69,15 +69,15 @@ public class TenSolution {
             //判空处理
             int num1 = l1 == null ? 0 : l1.val;
             int num2 = l2 == null ? 0 : l2.val;
-            LinkedNode LinkedNode = new LinkedNode();
+            ListNode ListNode = new ListNode();
             if (num1 + num2 + needAdd > 9) {
-                LinkedNode.val = num1 + num2 + needAdd - 10;
+                ListNode.val = num1 + num2 + needAdd - 10;
                 needAdd = 1;
             } else {
-                LinkedNode.val = num1 + num2 + needAdd;
+                ListNode.val = num1 + num2 + needAdd;
                 needAdd = 0;
             }
-            addNode.next = LinkedNode;
+            addNode.next = ListNode;
             addNode = addNode.next;
             //判空处理
             l1 = l1 == null ? null : l1.next;
@@ -85,7 +85,7 @@ public class TenSolution {
         }
         //两个链表遍历完之后，needAdd不为0，说明还要进位1，创建新的节点，val为1
         if (needAdd != 0) {
-            addNode.next = new LinkedNode(1);
+            addNode.next = new ListNode(1);
         }
         return headNode.next.next;
     }
@@ -540,6 +540,7 @@ public class TenSolution {
         // 由于处于中位的数字不影响回文（它总是与自己相等），所以我们可以简单地将其去除。
         return x == revertedNumber || x == revertedNumber / 10;
     }
+
 
     /**
      * 给你一个字符串 s 和一个字符规律 p，请你来实现一个支持 '.' 和 '*' 的正则表达式匹配。

@@ -5,18 +5,18 @@ package bean;
  * @date 2020/12/17 20:44
  * @description: 链表的Node
  */
-public class LinkedNode {
+public class ListNode {
     public int val;
-    public LinkedNode next;
+    public ListNode next;
 
-    public LinkedNode() {
+    public ListNode() {
     }
 
-    public LinkedNode(int val) {
+    public ListNode(int val) {
         this.val = val;
     }
 
-    public LinkedNode(int val, LinkedNode next) {
+    public ListNode(int val, ListNode next) {
         this.val = val;
         this.next = next;
     }

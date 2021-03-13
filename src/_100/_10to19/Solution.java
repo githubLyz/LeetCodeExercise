@@ -1,15 +1,15 @@
-package _100._20;
+package _100._10to19;
 
-import bean.LinkedNode;
+import bean.ListNode;
 
 import java.util.*;
 
 /**
  * @author YuJoy
  * @date 2021/01/01 20:46
- * @description: LeetCode 11-20题解
+ * @description: LeetCode 10-19题解
  */
-public class TwentySolution {
+public class Solution {
     /**
      * 给你 n 个非负整数 a1，a2，...，an，每个数代表坐标中的一个点(i,ai) 。在坐标内画 n 条垂直线，垂直线 i的两个端点分别为(i,ai) 和 (i, 0) 。找出其中的两条线，使得它们与x轴共同构成的容器可以容纳最多的水。
      * <p>
@@ -477,10 +477,10 @@ public class TwentySolution {
      * <p>
      * 进阶：你能尝试使用一趟扫描实现吗？
      */
-    public LinkedNode removeNthFromEnd(LinkedNode head, int n) {
-        LinkedNode emptyNode = new LinkedNode(0, head);
-        LinkedNode fastNode = head;
-        LinkedNode slowNode = emptyNode;
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+        ListNode emptyNode = new ListNode(0, head);
+        ListNode fastNode = head;
+        ListNode slowNode = emptyNode;
         for (int i = 0; i < n; i++) {
             fastNode = fastNode.next;
         }
