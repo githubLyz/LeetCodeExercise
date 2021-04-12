@@ -1,6 +1,6 @@
-package _100._10to19;
+package _1to99._10to19;
 
-import bean.ListNode;
+import bean.LinkedNode;
 
 import java.util.*;
 
@@ -477,10 +477,10 @@ public class Solution {
      * <p>
      * 进阶：你能尝试使用一趟扫描实现吗？
      */
-    public ListNode removeNthFromEnd(ListNode head, int n) {
-        ListNode emptyNode = new ListNode(0, head);
-        ListNode fastNode = head;
-        ListNode slowNode = emptyNode;
+    public LinkedNode removeNthFromEnd(LinkedNode head, int n) {
+        LinkedNode emptyNode = new LinkedNode(0, head);
+        LinkedNode fastNode = head;
+        LinkedNode slowNode = emptyNode;
         for (int i = 0; i < n; i++) {
             fastNode = fastNode.next;
         }

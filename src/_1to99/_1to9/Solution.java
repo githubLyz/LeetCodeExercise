@@ -1,6 +1,6 @@
-package _100._1to9;
+package _1to99._1to9;
 
-import bean.ListNode;
+import bean.LinkedNode;
 
 import java.util.ArrayList;
 import java.util.Stack;
@@ -12,7 +12,7 @@ import java.util.Stack;
  */
 public class Solution {
     /**
-     * 给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那 两个 整数，并返回他们的数组下标。
+     * 给定一个整数数组 nums和一个目标值 target，请你在该数组中找出和为目标值的那两个整数，并返回他们的数组下标。
      * <p>
      * 你可以假设每种输入只会对应一个答案。但是，数组中同一个元素不能使用两遍。
      * 示例:
@@ -41,11 +41,11 @@ public class Solution {
     }
 
     /**
-     * 给出两个 非空 的链表用来表示两个非负的整数。其中，它们各自的位数是按照 逆序 的方式存储的，并且它们的每个节点只能存储 一位 数字。
+     * 给出两个非空 的链表用来表示两个非负的整数。其中，它们各自的位数是按照逆序的方式存储的，并且它们的每个节点只能存储一位数字。
      * <p>
      * 如果，我们将这两个数相加起来，则会返回一个新的链表来表示它们的和。
      * <p>
-     * 您可以假设除了数字 0 之外，这两个数都不会以 0 开头。
+     * 您可以假设除了数字 0 之外，这两个数都不会以 0开头。
      * <p>
      * 示例：
      * <p>
@@ -57,10 +57,10 @@ public class Solution {
      * 链接：https://leetcode-cn.com/problems/add-two-numbers
      * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
      */
-    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+    public LinkedNode addTwoNumbers(LinkedNode l1, LinkedNode l2) {
         //创建头节点，方便返回值
-        ListNode headNode = new ListNode(-1);
-        ListNode addNode = new ListNode();
+        LinkedNode headNode = new LinkedNode(-1);
+        LinkedNode addNode = new LinkedNode();
         headNode.next = addNode;
         //标记位，不为0说明两数相加大于10，需要处理进位逻辑
         int needAdd = 0;
@@ -69,15 +69,15 @@ public class Solution {
             //判空处理
             int num1 = l1 == null ? 0 : l1.val;
             int num2 = l2 == null ? 0 : l2.val;
-            ListNode ListNode = new ListNode();
+            LinkedNode LinkedNode = new LinkedNode();
             if (num1 + num2 + needAdd > 9) {
-                ListNode.val = num1 + num2 + needAdd - 10;
+                LinkedNode.val = num1 + num2 + needAdd - 10;
                 needAdd = 1;
             } else {
-                ListNode.val = num1 + num2 + needAdd;
+                LinkedNode.val = num1 + num2 + needAdd;
                 needAdd = 0;
             }
-            addNode.next = ListNode;
+            addNode.next = LinkedNode;
             addNode = addNode.next;
             //判空处理
             l1 = l1 == null ? null : l1.next;
@@ -85,18 +85,18 @@ public class Solution {
         }
         //两个链表遍历完之后，needAdd不为0，说明还要进位1，创建新的节点，val为1
         if (needAdd != 0) {
-            addNode.next = new ListNode(1);
+            addNode.next = new LinkedNode(1);
         }
         return headNode.next.next;
     }
 
 
     /**
-     * 给定一个字符串，请你找出其中不含有重复字符的 最长子串 的长度。
+     * 给定一个字符串，请你找出其中不含有重复字符的最长子串的长度。
      * <p>
-     *  
+     * 
      * <p>
-     * 示例 1:
+     * 示例1:
      * <p>
      * 输入: s = "abcabcbb"
      * 输出: 3
@@ -110,8 +110,8 @@ public class Solution {
      * <p>
      * 输入: s = "pwwkew"
      * 输出: 3
-     * 解释: 因为无重复字符的最长子串是 "wke"，所以其长度为 3。
-     *      请注意，你的答案必须是 子串 的长度，"pwke" 是一个子序列，不是子串。
+     * 解释: 因为无重复字符的最长子串是"wke"，所以其长度为 3。
+     *     请注意，你的答案必须是 子串 的长度，"pwke"是一个子序列，不是子串。
      * 示例 4:
      * <p>
      * 输入: s = ""
@@ -143,11 +143,11 @@ public class Solution {
     }
 
     /**
-     * 给定两个大小为 m 和 n 的正序（从小到大）数组 nums1 和 nums2。请你找出并返回这两个正序数组的中位数。
+     * 给定两个大小为 m 和 n 的正序（从小到大）数组nums1 和nums2。请你找出并返回这两个正序数组的中位数。
      * <p>
      * 进阶：你能设计一个时间复杂度为 O(log (m+n)) 的算法解决此问题吗？
      * <p>
-     *  
+     * 
      * <p>
      * 示例 1：
      * <p>
@@ -215,7 +215,7 @@ public class Solution {
     }
 
     /**
-     * 给定一个字符串 s，找到 s 中最长的回文子串。你可以假设 s 的最大长度为 1000。
+     * 给定一个字符串 s，找到 s 中最长的回文子串。你可以假设s 的最大长度为 1000。
      * <p>
      * 示例 1：
      * <p>
@@ -271,9 +271,9 @@ public class Solution {
     }
 
     /**
-     * 将一个给定字符串根据给定的行数，以从上往下、从左到右进行 Z 字形排列。
+     * 将一个给定字符串根据给定的行数，以从上往下、从左到右进行Z 字形排列。
      * <p>
-     * 比如输入字符串为 "LEETCODEISHIRING" 行数为 3 时，排列如下：
+     * 比如输入字符串为 "LEETCODEISHIRING"行数为 3 时，排列如下：
      * <p>
      * L   C   I   R
      * E T O E S I I G
@@ -283,14 +283,14 @@ public class Solution {
      * 请你实现这个将字符串进行指定行数变换的函数：
      * <p>
      * string convert(string s, int numRows);
-     * 示例 1:
+     * 示例1:
      * <p>
      * 输入: s = "LEETCODEISHIRING", numRows = 3
      * 输出: "LCIRETOESIIGEDHN"
-     * 示例 2:
+     * 示例2:
      * <p>
-     * 输入: s = "LEETCODEISHIRING", numRows = 4
-     * 输出: "LDREOEIIECIHNTSG"
+     * 输入: s = "LEETCODEISHIRING", numRows =4
+     * 输出:"LDREOEIIECIHNTSG"
      * 解释:
      * <p>
      * L     D     R
@@ -333,11 +333,11 @@ public class Solution {
     /**
      * 给出一个 32 位的有符号整数，你需要将这个整数中每位上的数字进行反转。
      * <p>
-     * 示例 1:
+     * 示例1:
      * <p>
      * 输入: 123
      * 输出: 321
-     *  示例 2:
+     * 示例 2:
      * <p>
      * 输入: -123
      * 输出: -321
@@ -347,7 +347,7 @@ public class Solution {
      * 输出: 21
      * 注意:
      * <p>
-     * 假设我们的环境只能存储得下 32 位的有符号整数，则其数值范围为 [−231,  231 − 1]。
+     * 假设我们的环境只能存储得下 32 位的有符号整数，则其数值范围为[−231, 231− 1]。
      * 请根据这个假设，如果反转后整数溢出那么就返回 0。
      * <p>
      * 来源：力扣（LeetCode）
@@ -369,7 +369,7 @@ public class Solution {
     }
 
     /**
-     * 请你来实现一个 atoi 函数，使其能将字符串转换成整数。
+     * 请你来实现一个atoi函数，使其能将字符串转换成整数。
      * <p>
      * 首先，该函数会根据需要丢弃无用的开头空格字符，直到寻找到第一个非空格的字符为止。接下来的转化规则如下：
      * <p>
@@ -383,36 +383,36 @@ public class Solution {
      * 提示：
      * <p>
      * 本题中的空白字符只包括空格字符 ' ' 。
-     * 假设我们的环境只能存储 32 位大小的有符号整数，那么其数值范围为 [−231,  231 − 1]。如果数值超过这个范围，请返回  INT_MAX (231 − 1) 或 INT_MIN (−231) 。
-     *  
+     * 假设我们的环境只能存储 32 位大小的有符号整数，那么其数值范围为[−231, 231− 1]。如果数值超过这个范围，请返回 INT_MAX (231− 1) 或INT_MIN (−231) 。
+     * 
      * <p>
-     * 示例 1:
+     * 示例1:
      * <p>
      * 输入: "42"
      * 输出: 42
-     * 示例 2:
+     * 示例2:
      * <p>
      * 输入: "   -42"
      * 输出: -42
      * 解释: 第一个非空白字符为 '-', 它是一个负号。
-     *      我们尽可能将负号与后面所有连续出现的数字组合起来，最后得到 -42 。
-     * 示例 3:
+     *     我们尽可能将负号与后面所有连续出现的数字组合起来，最后得到 -42 。
+     * 示例3:
      * <p>
      * 输入: "4193 with words"
      * 输出: 4193
      * 解释: 转换截止于数字 '3' ，因为它的下一个字符不为数字。
-     * 示例 4:
+     * 示例4:
      * <p>
      * 输入: "words and 987"
      * 输出: 0
      * 解释: 第一个非空字符是 'w', 但它不是数字或正、负号。
      * 因此无法执行有效的转换。
-     * 示例 5:
+     * 示例5:
      * <p>
      * 输入: "-91283472332"
      * 输出: -2147483648
      * 解释: 数字 "-91283472332" 超过 32 位有符号整数范围。
-     *      因此返回 INT_MIN (−231) 。
+     *     因此返回 INT_MIN (−231) 。
      * <p>
      * 来源：力扣（LeetCode）
      * 链接：https://leetcode-cn.com/problems/string-to-integer-atoi
@@ -464,7 +464,7 @@ public class Solution {
      * <p>
      * 输入: 121
      * 输出: true
-     * 示例 2:
+     * 示例2:
      * <p>
      * 输入: -121
      * 输出: false
@@ -543,11 +543,11 @@ public class Solution {
 
 
     /**
-     * 给你一个字符串 s 和一个字符规律 p，请你来实现一个支持 '.' 和 '*' 的正则表达式匹配。
+     * 给你一个字符串s和一个字符规律p，请你来实现一个支持 '.'和'*'的正则表达式匹配。
      * <p>
      * '.' 匹配任意单个字符
      * '*' 匹配零个或多个前面的那一个元素
-     * 所谓匹配，是要涵盖 整个 字符串 s的，而不是部分字符串。
+     * 所谓匹配，是要涵盖整个字符串s的，而不是部分字符串。
      * <p>
      * 来源：力扣（LeetCode）
      * 链接：https://leetcode-cn.com/problems/regular-expression-matching
@@ -591,4 +591,6 @@ public class Solution {
 
         return s.charAt(i - 1) == p.charAt(j - 1);
     }
+
+
 }

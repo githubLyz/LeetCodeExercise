@@ -1,4 +1,4 @@
-package _100._20to29;
+package _1to99._20to29;
 
 /**
  * @author YuJoy

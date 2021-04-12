@@ -1,6 +1,6 @@
-package _100._20to29;
+package _1to99._20to29;
 
-import bean.ListNode;
+import bean.LinkedNode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,12 +14,12 @@ public class Solution {
     /**
      * 将两个升序链表合并为一个新的 升序 链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。
      */
-    private ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+    private LinkedNode mergeTwoLists(LinkedNode l1, LinkedNode l2) {
         if (l1 == null && l2 == null) {
             return null;
         }
-        ListNode prehead = new ListNode(-1);
-        ListNode prev = prehead;
+        LinkedNode prehead = new LinkedNode(-1);
+        LinkedNode prev = prehead;
         while (l1 != null && l2 != null) {
             if (l1.val < l2.val) {
                 prev.next = l1;
@@ -95,11 +95,11 @@ public class Solution {
      * 链接：https://leetcode-cn.com/problems/merge-k-sorted-lists
      * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
      */
-    public ListNode mergeKLists(ListNode[] lists) {
+    public LinkedNode mergeKLists(LinkedNode[] lists) {
         return merge(lists, 0, lists.length - 1);
     }
 
-    public ListNode merge(ListNode[] lists, int l, int r) {
+    public LinkedNode merge(LinkedNode[] lists, int l, int r) {
         if (l == r) {
             return lists[l];
         }
@@ -136,13 +136,13 @@ public class Solution {
      * 链接：https://leetcode-cn.com/problems/swap-nodes-in-pairs
      * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
      */
-    public ListNode swapPairs(ListNode head) {
-        ListNode nullNode = new ListNode();
+    public LinkedNode swapPairs(LinkedNode head) {
+        LinkedNode nullNode = new LinkedNode();
         nullNode.next = head;
-        ListNode changeNode = nullNode;
+        LinkedNode changeNode = nullNode;
         while (changeNode.next != null && changeNode.next.next != null) {
-            ListNode firstNode = changeNode.next;
-            ListNode secondNode = changeNode.next.next;
+            LinkedNode firstNode = changeNode.next;
+            LinkedNode secondNode = changeNode.next.next;
             changeNode.next = secondNode;
             firstNode.next = secondNode.next;
             secondNode.next = firstNode;
@@ -173,14 +173,14 @@ public class Solution {
      * 链接：https://leetcode-cn.com/problems/reverse-nodes-in-k-group
      * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
      */
-    public ListNode reverseKGroup(ListNode head, int k) {
+    public LinkedNode reverseKGroup(LinkedNode head, int k) {
         //1.创建一个节点，next指向head
-        ListNode beforeHeadNode = new ListNode(0);
+        LinkedNode beforeHeadNode = new LinkedNode(0);
         beforeHeadNode.next = head;
-        ListNode tempNode = beforeHeadNode;
+        LinkedNode tempNode = beforeHeadNode;
         while (head != null) {
             //3.从head节点之前的节点开始循环，k次之后，从tempNode到lastOfKNode就是需要反转的链表
-            ListNode lastOfKNode = tempNode;
+            LinkedNode lastOfKNode = tempNode;
             for (int i = 0; i < k; i++) {
                 lastOfKNode = lastOfKNode.next;
                 if (lastOfKNode == null) {
@@ -189,9 +189,9 @@ public class Solution {
                 }
             }
             //5.找到待反转链表之后的节点，反转之后需要连接
-            ListNode nextOfKNode = lastOfKNode.next;
+            LinkedNode nextOfKNode = lastOfKNode.next;
             //6.链表反转
-            ListNode[] reversalNode = reversalNode(head, lastOfKNode);
+            LinkedNode[] reversalNode = reversalNode(head, lastOfKNode);
 
             head = reversalNode[0];
             lastOfKNode = reversalNode[1];
@@ -211,17 +211,17 @@ public class Solution {
     /**
      * 链表反转
      */
-    private ListNode[] reversalNode(ListNode head, ListNode last) {
-        ListNode prev = last.next;
-        ListNode p = head;
+    private LinkedNode[] reversalNode(LinkedNode head, LinkedNode last) {
+        LinkedNode prev = last.next;
+        LinkedNode p = head;
         while (prev != last) {
-            ListNode next = p.next;
+            LinkedNode next = p.next;
             p.next = prev;
             prev = p;
             p = next;
         }
         //反转之后，last为头节点，head为尾节点
-        return new ListNode[]{last, head};
+        return new LinkedNode[]{last, head};
     }
 
     /**
